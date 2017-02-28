@@ -10,7 +10,7 @@ $(document).ready(function(){
         console.log('response', response);
         $('#bookShelf').empty();
         for (var i = 0; i < response.length; i++) {
-          $('#bookShelf').append('<li>Title: ' + response[i].title + ', Author: ' + response[i].author + '</li>');
+          $('#bookShelf').append('<li>Title: ' + response[i].title + ', Author: ' + response[i].author + ', Edition: ' + response[i].edition + ', Publisher: ' + response[i].publisher + '</li>');
         }
       }
     });
@@ -20,6 +20,8 @@ $(document).ready(function(){
     var newBookObject = {};
     newBookObject.title = $('#newBookTitle').val();
     newBookObject.author = $('#newBookAuthor').val();
+    newBookObject.edition = $('#newBookEdition').val();
+    newBookObject.publisher = $('#newBookPublisher').val();
     $.ajax({
       type: 'POST',
       url: '/books/new',
